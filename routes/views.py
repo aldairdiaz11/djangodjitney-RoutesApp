@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Line, Station, Stop
 from .forms import StopForm, LineForm, StationForm
 # Add your imports below:
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 
 
 class HomeView(TemplateView):
@@ -16,3 +16,14 @@ class HomeView(TemplateView):
         return context
 
 # Create your views here.
+
+
+class LinesView(ListView):
+    model = Line
+    template_name = "routes/lines.html"
+
+
+class CreateLineView(CreateView):
+    model = Line
+    fields = ["name"]
+    template_name = "routes/add_line.html"
