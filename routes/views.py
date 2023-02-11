@@ -51,3 +51,15 @@ class CreateStationView(CreateView):
     model = Station
     form_class = StationForm
     template_name = "routes/add_station.html"
+
+
+class UpdateStationView(UpdateView):
+    model = Station
+    form_class = StationForm
+    template_name = "routes/update_station.html"
+
+
+class DeleteStationView(DeleteView):
+    model = Station
+    template_name = "routes/delete_station.html"
+    success_url = "/stations"
